@@ -5,7 +5,7 @@ RSpec.describe AuthorsController do
   let(:jeff_found) { Author.find_by(email: jeff.email) }
 
   describe "showing an author" do
-    it "shows an author" do
+    it 'shows an author' do
       get :show, params: { id: jeff.id }
       expect(jeff_found.id).to eq(jeff.id)
     end
@@ -42,7 +42,7 @@ RSpec.describe AuthorsController do
       expect(jeff_bad.errors[:email]).to_not be_empty
     end
 
-    it "renders the form again" do
+    it 'renders the form again' do
       post :create, params: bad_attributes
       expect(response).to render_template(:new)
     end
