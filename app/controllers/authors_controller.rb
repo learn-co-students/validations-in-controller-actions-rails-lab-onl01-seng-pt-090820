@@ -1,5 +1,5 @@
 class AuthorsController < ApplicationController
-  before_action :set_post!, only: [:show, :edit, :update]
+  # before_action :set_response!, only: [:show, :edit, :update]
   def show
     @author = Author.find(params[:id])
   end
@@ -9,7 +9,7 @@ class AuthorsController < ApplicationController
   end
 
   def create
-    @author = Author.create!(author_params)
+    @author = Author.new(author_params)
     
     if @author.save
       redirect_to author_path(@author)
